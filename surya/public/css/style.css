@@ -1,0 +1,11 @@
+.body {
+    font-family: roboto;
+}
+
+.footer {
+    position: fixed;
+}
+
+.jumbotron {
+    background-image: url("../public/img/jumbotron.png");
+}
