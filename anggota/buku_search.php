@@ -2,7 +2,7 @@
   <h4>Data Pencarian Buku</h4>
   <hr>	
 </div>
-<div id="loginbox" style="margin-top: ;" class="mainbox col-md-9">
+<div id="loginbox" style="margin-top:10px ;" class="mainbox col-md-9">
 	<div class="panel panel-info">
 		<div class="panel-heading">
 			<!-- <a  class="btn btn-success" href="?page=buku_input"><span class="glyphicon glyphicon-plus"></span> Input Anggota</a> -->

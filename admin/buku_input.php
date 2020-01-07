@@ -4,16 +4,24 @@ $obj = new buku;
 date_default_timezone_set('Asia/Jakarta');
 
 if (isset($_POST['btn-save'])) {
-	$ekstensi_diperbolehkan	= array('png', 'jpg', 'pdf', 'doc', 'docx');
+	$ekstensi_diperbolehkan	= array('png', 'jpg', 'pdf', 'doc', 'docx','jpeg','gif');
 	$nama = $_FILES['filenya']['name'];
+	$cover = $_FILES['cover']['name'];
+
 	$x = explode('.', $nama);
+	$y = explode('.', $cover);
 	$ekstensi = strtolower(end($x));
+	$ekstensi2 = strtolower(end($y));
 	$ukuran	= $_FILES['filenya']['size'];
+	$ukuran2 = $_FILES['cover']['size'];
 	$file_tmp = $_FILES['filenya']['tmp_name'];
+	$file_tmp2 = $_FILES['cover']['tmp_name'];
+	// var_dump($file_tmp2);
 
 	if (in_array($ekstensi, $ekstensi_diperbolehkan) === true) {
-		if ($ukuran < 1044070) {
+		if ($ukuran < 104004070) {
 			move_uploaded_file($file_tmp, 'file/' . $nama);
+			move_uploaded_file($file_tmp2, 'img/' . $cover);
 			// $query = mysqli_query($database, "INSERT INTO upload VALUES(NULL, '$nama')");
 			// if ($query) {
 			// 	echo 'FILE BERHASIL DI UPLOAD';
@@ -38,9 +46,10 @@ if (isset($_POST['btn-save'])) {
 	$jam = date('H:i:s');
 	$waktu = $tanggal . ' ' . $jam;
 	$bukunya = $nama;
+	$covernya = $cover;
 
-	// var_dump($obj->create($judul, $pengarang, $penerbit, $thn_terbit, $isbn, $jumlah_buku, $lokasi, $waktu, $bukunya));
-	if ($obj->create($judul, $pengarang, $penerbit, $thn_terbit, $isbn, $jumlah_buku, $lokasi, $waktu, $bukunya)) {
+	//var_dump($obj->create($judul, $pengarang, $penerbit, $thn_terbit, $isbn, $jumlah_buku, $lokasi, $waktu, $bukunya, $covernya));
+	if ($obj->create($judul, $pengarang, $penerbit, $thn_terbit, $isbn, $jumlah_buku, $lokasi, $waktu, $bukunya, $covernya)) {
 		header('location:?page=buku&msg=success');
 	}
 }
@@ -85,11 +94,11 @@ if (isset($_POST['btn-save'])) {
 				<td>Kode ISBN</td>
 				<td><input type="text" name="isbn" class="form-control" required></td>
 			</tr>
-			<tr>
+			<!-- <tr>
 				<td>Jumlah</td>
 				<td><input type="text" name="jumlah_buku" class="form-control" required></td>
-			</tr>
-			<tr>
+			</tr> -->
+			<!-- <tr>
 				<td>Lokasi</td>
 				<td>
 					<select name="lokasi" class="form-control" style="width: 200px">
@@ -99,10 +108,15 @@ if (isset($_POST['btn-save'])) {
 						<option value="rak3">Rak 3</option>
 					</select>
 				</td>
-			</tr>
+			</tr> -->
 			<tr>
 				<td>File nya</td>
 				<td><input type="file" name="filenya" class="form-control" required></td>
+			</tr>
+			
+			<tr>
+				<td>Cover</td>
+				<td><input type="file" name="cover" class="form-control" required></td>
 			</tr>
 
 			<tr>

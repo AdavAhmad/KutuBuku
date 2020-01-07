@@ -40,7 +40,7 @@ if (isset($msg)) {
 					<select disabled name="thn_terbit" class="form-control" style="width: 200px">
 						<option>- Pilih Tahun -</option>
 					<?php 
-					for ($i=date(Y); $i >= 2000; $i--) { 
+					for ($i=date('Y'); $i >= 2000; $i--) { 
 						if ($thn_terbit==$i) {
 							echo "<option selected>$i</option>";
 						}else{

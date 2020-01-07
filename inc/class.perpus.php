@@ -114,10 +114,10 @@ class perpus
 				class buku extends perpus
 				{
 
-					public function create($judul, $pengarang, $penerbit, $thn_terbit, $isbn, $jumlah_buku, $lokasi, $waktu, $bukunya)
+					public function create($judul, $pengarang, $penerbit, $thn_terbit, $isbn, $jumlah_buku, $lokasi, $waktu, $bukunya, $covernya)
 					{
 						try {
-							$stmt = $this->conn->prepare('INSERT INTO tbl_buku(judul,pengarang,penerbit,thn_terbit,isbn,jumlah_buku,lokasi,tgl_input,bukunya) VALUES(?,?,?,?,?,?,?,?,?)');
+							$stmt = $this->conn->prepare('INSERT INTO tbl_buku(judul,pengarang,penerbit,thn_terbit,isbn,jumlah_buku,lokasi,tgl_input,bukunya,cover) VALUES(?,?,?,?,?,?,?,?,?,?)');
 							$stmt->bindParam(1, $judul);
 							$stmt->bindParam(2, $pengarang);
 							$stmt->bindParam(3, $penerbit);
@@ -127,6 +127,7 @@ class perpus
 							$stmt->bindParam(7, $lokasi);
 							$stmt->bindParam(8, $waktu);
 							$stmt->bindParam(9, $bukunya);
+							$stmt->bindParam(10, $covernya);
 							$zein = $stmt->execute();
 							var_dump($zein);
 							return true;

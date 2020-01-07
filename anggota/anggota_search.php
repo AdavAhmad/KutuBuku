@@ -3,7 +3,7 @@
       <hr>
 </div>
 
-<div id="loginbox" style="margin-top: ;" class="mainbox col-md-9">
+<div id="loginbox" style="margin-top:10px ;" class="mainbox col-md-9">
 	<div class="panel panel-info">
 
 		<div class="panel-heading">

@@ -1,6 +1,6 @@
 <head>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <script type="text/javascript" src="../public/script.js"></script>
 </head>
 
@@ -13,7 +13,9 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
+                <a href="#" class="list-group-item active">
+                Wellcome : <font color=""><?php echo $_SESSION['nama']; ?></font>
+                </a>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav pr-5 pl-5 ">
                         <li class="nav-item active mr-3">
@@ -34,7 +36,8 @@
                     </ul>
                     <form class="form-inline my-2 my-lg-0">
 
-                        <button class="btn btn btn-outline-primary ml-5">Masuk</button>
+                        <!-- <button class="btn btn btn-outline-primary ml-5">Masuk</button> -->
+                        <li><a href="?page=logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
                     </form>
                 </div>
             </div>
