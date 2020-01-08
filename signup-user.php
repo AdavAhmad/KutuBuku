@@ -70,7 +70,15 @@
 
                         <div style="margin-bottom: 25px" class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                            <input id="login-username" type="text" class="form-control" name="email" placeholder="email" required>
+                            <input id="login-username" type="email" class="form-control" name="email" placeholder="email" required>
+                        </div>
+                        <div style="margin-bottom: 25px ; margin-left: 25px" class="input-group">
+                            <label class="radio-inline">
+                                <input type="radio" name="gender" value="L">Laki-Laki
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="gender" value="P">Perempuan
+                            </label>
                         </div>
 
                         <div style="margin-bottom: 25px" class="input-group">
