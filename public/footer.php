@@ -13,8 +13,7 @@
 </style>
 
 
-<div class="container-fluid mb-5">
-</div>
+
 <!-- Footer -->
 <footer id="footer" class="bg-dark text-light position-bottom ">
     <div class="container">
