@@ -14,9 +14,9 @@ $repeat_password = $_POST['repeat_password'];
 var_dump($username);
 var_dump($repeat_password);
 // isi nama host, username mysql, dan password mysql anda
-$host = mysql_connect("localhost", "root", "");
+$host = mysqli_connect("localhost", "root", "");
 
 // isikan dengan nama database yang akan di hubungkan
-$db = mysql_select_db("db_perpus");
-$kelsi = mysql_query("INSERT INTO tbl_anggota VALUES('$password','$username','$no_telp','$email','','','','')") or die(mysql_error());
+$db = mysqli_select_db($host, "db_perpus");
+$kelsi = mysqli_query($host, "INSERT INTO tbl_anggota VALUES('$password','$username','$no_telp','$email','','','','')") or die(mysqli_error());
 var_dump($kelsi);
