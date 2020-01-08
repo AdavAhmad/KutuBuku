@@ -14,12 +14,12 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <a href="#" class="list-group-item active">
-                Wellcome : <font color=""><?php echo $_SESSION['nama']; ?></font>
+                    Wellcome : <font color=""><?php echo $_SESSION['nama']; ?></font>
                 </a>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav pr-5 pl-5 ">
                         <li class="nav-item active mr-3">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="../anggota/index.php">
                                 <h5>Menu Utama</h5>
                             </a>
                         </li>
@@ -29,7 +29,7 @@
                             </a>
                         </li>
                         <li class="nav-item mr-3 ">
-                            <a class="nav-link " href="#">
+                            <a class="nav-link " href="../anggota/dashboard.php">
                                 <h5>Buku Saya</h5>
                             </a>
                         </li>

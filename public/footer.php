@@ -13,12 +13,12 @@
 </style>
 
 
-<div class="container mb-5">
+<div class="container-fluid mb-5">
 </div>
 <!-- Footer -->
-<footer id="footer" class="bg-dark text-light">
+<footer id="footer" class="bg-dark text-light position-bottom ">
     <div class="container">
-        <div class="row">
+        <div class="row align-items-end">
             <div class="col-md-2"></div>
             <div class="col-md-2 my-5">
                 <h6 class="logo text-left">
