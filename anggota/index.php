@@ -164,10 +164,10 @@
 
   <!-- Koten Koleksi terbaru -->
   <section class="konten1">
-    <div class="container mt-5">
+    <div class="container mt-5 ">
       <div class="row mt-2">
         <div class="col-md-1"></div>
-        <div class="col-md-10 text-light " style="background-color:#F3EDD7">
+        <div class="col-md-10 text-light" style="background-color:#F3EDD7">
           <h3 class=" mb-3 mt-3 text-dark text-center ">Koleksi Terbaru</h3>
         </div>
       </div>
@@ -218,10 +218,9 @@
   $res1 = $hmm1->get_result();
   while ($row = $res1->fetch_assoc()) {
     $id = $row["id_buku"];
-    var_dump($row);
   }
-
   ?>
+
 
 
   <section class="favorit">
@@ -258,17 +257,86 @@
   <!-- Genre 1 -->
   <section class="konten1">
     <div class="container">
-      <div class="row mt-2">
+      <div class="row">
         <div class="col-md-1"></div>
-        <div class="col-md-10 text-light mt-n2" style="background-color:#F3EDD7">
-          <h3 class=" mb-3 mt-3 text-dark text-center">Kategori</h3>
+        <div class="col-md-10 mb-n2">
+          <h3 class="text-dark text-center mx-n4" style="background-color:#F3EDD7">Karya Ilmiah</h3>
         </div>
+      </div>
+
+      <div class="row ">
+        <div class="col-md-1"></div>
+        <!-- <div class=" text-light mt-n2" style="background-color:#F3EDD7"> -->
+
+
+        <?php
+        require_once '../public/koneksi.php';
+        $query = 'select cover,id,judul from tbl_buku where id_kategori=1 order by id desc limit 5';
+        $hmm1 = $database->prepare($query);
+        $hmm1->execute();
+        $res1 = $hmm1->get_result();
+        while ($row = $res1->fetch_assoc()) {
+          $gambar = $row["cover"];
+        ?>
+          <div class="col-md-2" style="background-color:#F3EDD7">
+            <div class="card mt-5 bg-transparent mb-5">
+              <?php if ($gambar == NULL) {
+              ?><img src="../public/img/buku/1.png" class="card-img-top mb-4" alt="gambar" style="width: 100%; height: 275px">
+              <?php
+              } else { ?>
+                <img src="../admin/img/<?php echo $gambar; ?>" class="card-img-top mb-4" alt="gambar" style="width: 100%; height: 275px">
+              <?php } ?>
+              <a href="pinjam.php?buku=<?= $row["id"] ?>&judul=<?= $row["judul"] ?>"><button class="btn btn-outline-primary btn-lg" style="width: 100%;">Pinjam</button></a>
+            </div>
+          </div>
+        <?php } ?>
+
+        <!-- </div> -->
       </div>
     </div>
   </section>
   <!-- Akhir Genre 1 -->
 
   <!-- Genre 2 -->
+  <section class="konten1">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10 mb-n2">
+          <h3 class="text-dark text-center mx-n4" style="background-color:#F3EDD7">Novel</h3>
+        </div>
+      </div>
+
+      <div class="row ">
+        <div class="col-md-1"></div>
+        <!-- <div class=" text-light mt-n2" style="background-color:#F3EDD7"> -->
+
+        <?php
+        require_once '../public/koneksi.php';
+        $query = 'select cover,id,judul from tbl_buku where id_kategori=3 order by id desc limit 5';
+        $hmm1 = $database->prepare($query);
+        $hmm1->execute();
+        $res1 = $hmm1->get_result();
+        while ($row = $res1->fetch_assoc()) {
+          $gambar = $row["cover"];
+        ?>
+          <div class="col-md-2" style="background-color:#F3EDD7">
+            <div class="card mt-5 bg-transparent mb-5">
+              <?php if ($gambar == NULL) {
+              ?><img src="../public/img/buku/1.png" class="card-img-top mb-4" alt="gambar" style="width: 100%; height: 275px">
+              <?php
+              } else { ?>
+                <img src="../admin/img/<?php echo $gambar; ?>" class="card-img-top mb-4" alt="gambar" style="width: 100%; height: 275px">
+              <?php } ?>
+              <a href="pinjam.php?buku=<?= $row["id"] ?>&judul=<?= $row["judul"] ?>"><button class="btn btn-outline-primary btn-lg" style="width: 100%;">Pinjam</button></a>
+            </div>
+          </div>
+        <?php } ?>
+
+        <!-- </div> -->
+      </div>
+    </div>
+  </section>
 
   <!-- Akhir Genre 2 -->
 

@@ -36,12 +36,10 @@
                                     $host = mysqli_connect("localhost", "root", "");
                                     $db = mysqli_select_db($host, "db_perpus");
                                     $res1 = mysqli_query($host, $query) or die(mysqli_error($host));
-                                    // var_dump($res1);
-
                                     foreach ($res1 as $row) {
                                         $nama = $row['kategori'];
                                     ?>
-                                        <a class="dropdown-item" href="../Kategori/kategori.php"><?= $nama ?></a>
+                                        <a class="dropdown-item" href="kategori.php?buku=<?= $row["id_kategori"] ?>"><?= $nama ?></a>
                                     <?php }     ?>
                                 </div>
                             </div>
