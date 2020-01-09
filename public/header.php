@@ -2,6 +2,7 @@
     <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script type="text/javascript" src="../public/script.js"></script>
+    <link rel="shortcut icon" href="../public/img/logo.png">
 </head>
 
 <!-- Header -->
@@ -19,18 +20,35 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav pr-5 pl-5 ">
                         <li class="nav-item active mr-3">
-                            <a class="nav-link" href="../anggota/index.php">
-                                <h5>Menu Utama</h5>
+                            <a class="nav-link" href="../anggota/index.php" style="font-size:16px">
+                                Menu Utama
                             </a>
                         </li>
                         <li class="nav-item mr-3">
-                            <a class="nav-link" href="../Kategori/kategori.php">
-                                <h5>Kategori</h5>
-                            </a>
+                            <div class="dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" style="font-size:16px">
+                                    kategori
+                                </a>
+                                <div class="dropdown-menu">
+                                    <?php
+                                    $query = "select * from tbl_kategori";
+                                    $query_buku = "select * from tbl_buku where id='{$_SESSION['nama']}'";
+                                    $host = mysqli_connect("localhost", "root", "");
+                                    $db = mysqli_select_db($host, "db_perpus");
+                                    $res1 = mysqli_query($host, $query) or die(mysqli_error($host));
+                                    // var_dump($res1);
+
+                                    foreach ($res1 as $row) {
+                                        $nama = $row['kategori'];
+                                    ?>
+                                        <a class="dropdown-item" href="../Kategori/kategori.php"><?= $nama ?></a>
+                                    <?php }     ?>
+                                </div>
+                            </div>
                         </li>
                         <li class="nav-item mr-3 ">
-                            <a class="nav-link " href="../anggota/dashboard.php">
-                                <h5>Buku Saya</h5>
+                            <a class="nav-link " href="../anggota/dashboard.php" style="font-size:16px">
+                                Buku Saya
                             </a>
                         </li>
                     </ul>

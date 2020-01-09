@@ -65,7 +65,7 @@
               <li><a href="?page=anggota"><i class="glyphicon glyphicon-list-alt"></i> Anggota</a></li>
               <li><a href="?page=transaksi"><i class="glyphicon glyphicon-random"></i> Transaksi</a></li>
               <li><a href="?page=laporan"><i class="glyphicon glyphicon-file"></i> Laporan</a></li>
-              <li><a href="?page=user"><i class="glyphicon glyphicon-user"></i> User</a></li>
+              <!-- <li><a href="?page=user"><i class="glyphicon glyphicon-user"></i> User</a></li> -->
             </ul><br>
           </div>
 
@@ -159,7 +159,7 @@
     </div>
     <br>
     <footer class="container-fluid">
-      <p>&copy; ELANG SURYA <a href="https://phpoison.blogspot.com" target="_blank">PHPOISON.BLOGSPOT.COM</a></p>
+      <p>&copy; NURUDIN SURYA </p>
     </footer>
   <?php } ?>
 </body>

@@ -212,12 +212,13 @@
 
   $isn = require_once '../public/koneksi.php';
   // var_dump($isn);
-  $query = 'select count(id_buku) from tbl_transaksi';
+  $query = 'select id_buku, count(*) as fav from tbl_transaksi group by id_buku order by fav desc limit 1';
   $hmm1 = $database->prepare($query);
   $hmm1->execute();
   $res1 = $hmm1->get_result();
   while ($row = $res1->fetch_assoc()) {
-    // $id = $row["id_buku"];
+    $id = $row["id_buku"];
+    var_dump($row);
   }
 
   ?>

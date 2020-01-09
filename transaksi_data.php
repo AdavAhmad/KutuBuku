@@ -117,7 +117,7 @@ if (isset($_GET['proses'])) {
 						<th>Peminjam</th>
 						<th>Tgl Pinjam</th>
 						<th>Tgl Kembali</th>
-						<th>Terlambat</th>
+						<!-- <th>Terlambat</th> -->
 						<th>Kembali</th>
 						<th>Perpanjang</th>
 					</tr>
@@ -161,9 +161,9 @@ if (isset($_GET['proses'])) {
 								}
 								?>
 							</td>
-							<td>
+							<!-- <td>
 								<a href="?page=transaksi&proses=Kembali&id=<?= $value['id']; ?>&judul=<?= $value['judul']; ?>">kembali</a>
-							</td>
+							</td> -->
 							<td>
 								<a href="?page=transaksi&proses=perpanjang&id=<?= $value['id']; ?>&judul=<?= $value['judul']; ?>&tgl_kembali=<?= $value['tgl_kembali']; ?>&lambat=<?php echo $lambat; ?>">perpanjang</a>
 							</td>

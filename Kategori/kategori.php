@@ -1,51 +1,63 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
-<link rel="stylesheet" type="text/css" href="../public/css/bootstrap.min.css">
-<link rel="stylesheet" href="../public/css/style.css">
-<script type="text/javascript" src="../public/script.js"></script>
+<head>
+    <title>Detail Buku</title>
+    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="../public/css/bootstrap.min.css">
 
-<body style="background-color:#ffffff">
+
     <?php
-    include "../public/header.php";
+    session_start();
+    if (!isset($_SESSION['nama']) || $_SESSION['level'] != "anggota") {
+        echo "<script>alert('Silahkan login terlebih dahulu')</script>";
+        echo "<meta http-equiv='refresh' content='0; url=../index.php'>";
+    } else {
+
+        include_once 'head.php';
+    }
+    require_once '../public/header.php'
     ?>
-    
 
-    <!-- Slider1 -->
-    <section class="slider0 ">
+</head>
+
+<body>
+
+
+
+
+    <section class="kategori">
         <div class="container">
-            <div class="row " id="load-data1">
-                <div class="col-md-1"></div>
-                <?php
-                require_once '../public/koneksi.php'; 
-                $query = 'select * from kategori order by id asc';
-                $hmm1 = $db1->prepare($query);
-                $hmm1->execute();
-                $res1 = $hmm1->get_result();
-                while ($row = $res1->fetch_assoc()) {
-                    $gambar=$row["gambar"];
-                    $id = $row["Id"];
-                
-                    $kategori = $row["kategori"];
-                    
-                    ?>
-                    <div class="col-md-2">
-                        <div class="card mt-4 bg-transparent">
-                            <img src="<?php echo $gambar?>" class="card-img-top mb-1" alt="gambar">
-                            <p class="text-center"><?php echo $kategori; ?></p>
-                            <a href="kelsi/<?= $id ?>">
-                            <button class="btn btn-outline-primary btn-lg">Buka</button>
-                            </a>
-                        </div>
+            <?php
+            require_once '../public/koneksi.php';
+            $query = 'select cover,id,judul from tbl_buku';
+            $hmm1 = $database->prepare($query);
+            $hmm1->execute();
+            $res1 = $hmm1->get_result();
+            while ($row = $res1->fetch_assoc()) {
+                $gambar = $row["cover"];
+            ?>
+                <div class="col-md-2" style="background-color:#F3EDD7;">
+                    <div class="card bg-transparent my-5">
+                        <?php if ($gambar == NULL) {
+                        ?><img src="../public/img/buku/1.png" class="card-img-top mb-4 " alt="gambar" style="width: 100%; height: 275px">
+                        <?php
+                        } else { ?>
+                            <img src="../admin/img/<?php echo $gambar; ?>" class="card-img-top mb-4" alt="gambar" style="width: 100%; height: 275px">
+                        <?php } ?>
+                        <a href="pinjam.php?buku=<?= $row["id"] ?>&judul=<?= $row["judul"] ?>"><button class="btn btn-outline-primary btn-lg" style="width: 100%;">Pinjam</button></a>
                     </div>
-                <?php } ?>
-            </div>
-
+                </div>
+            <?php } ?>
         </div>
     </section>
 
+
+
+
+
+    <?php require_once '../public/footer.php' ?>
 </body>
 
-<?php
-include "../public/footer.php";
-?>
+
+</html>

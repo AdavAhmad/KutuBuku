@@ -17,7 +17,7 @@ if (isset($_POST['submit'])) {
 	$results = $stmt->fetch(PDO::FETCH_ASSOC);
 	// echo $results['password'];
 	if (count($results) > 0 && $password == $results['password']) {
-		$_SESSION['id'] = $results['id'];
+		//$_SESSION['id'] = $results['id'];
 		$_SESSION['nama'] = $results['username'];
 		$_SESSION['password'] = $results['password'];
 		// $_SESSION['username'] = $results['nama'];
@@ -28,8 +28,8 @@ if (isset($_POST['submit'])) {
 			echo "<meta http-equiv='refresh' content='0; url=admin/index.php'>";
 			exit;
 		} else {
-			echo "<script>alert('Anda berhasil Log In. Sebagai : $level');</script>";
-			echo "<meta http-equiv='refresh' content='0; url=guest/index.php'>";
+			// echo "<script>alert('Anda berhasil Log In. Sebagai : $level');</script>";
+			// echo "<meta http-equiv='refresh' content='0; url=guest/index.php'>";
 		}
 		if ($_SESSION['level'] == 'anggota') {
 			echo "<script>alert('Anda berhasil Log In. Sebagai : $level');</script>";

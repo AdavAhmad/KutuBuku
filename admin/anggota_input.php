@@ -1,4 +1,4 @@
-<?php 
+<?php
 include_once '../inc/class.perpus.php';
 $anggota = new anggota;
 
@@ -11,7 +11,7 @@ if (isset($_POST['btn-save'])) {
 	$prodi = $_POST['prodi'];
 	$thn_masuk = $_POST['thn_masuk'];
 
-	if ($anggota->create($nim,$nama,$tempat_lahir,$tgl_lahir,$jk,$prodi,$thn_masuk)) {
+	if ($anggota->create($nim, $nama, $tempat_lahir, $tgl_lahir, $jk, $prodi, $thn_masuk)) {
 		header('location:?page=anggota&msg=success');
 	}
 }
@@ -22,32 +22,32 @@ if (isset($_POST['btn-save'])) {
 </div>
 
 <div class="col-md-9">
-	
+
 	<form method="post" action="">
 		<table class="table table-bordered">
 			<tr>
-				<td>NIM</td>
+				<td>Password</td>
 				<td><input class="form-control" type="text" name="nim" required></td>
 			</tr>
 			<tr>
-				<td>Nama Lengkap</td>
+				<td>Username</td>
 				<td><input class="form-control" type="text" name="nama" required></td>
 			</tr>
 			<tr>
-				<td>Tempat Lahir</td>
-				<td><input class="form-control" type="text" name="tempat_lahir" required></td>
+				<td>No Telp</td>
+				<td><input class="form-control" type="telp" name="tempat_lahir" required></td>
 			</tr>
 			<tr>
-				<td>Tanggal Lahir</td>
-				<td><input class="form-control" type="date" name="tgl_lahir" placeholder="hh/bb/tttt"></td>
+				<td>Email</td>
+				<td><input class="form-control" type="emial" name="tgl_lahir" placeholder="email"></td>
 			</tr>
 			<tr>
 				<td>Jenis Kelamin</td>
 				<td><input class="" type="radio" value="L" name="jk"> Laki-laki
-				<input class="" type="radio" value="P" name="jk"> Perempuan
+					<input class="" type="radio" value="P" name="jk"> Perempuan
 				</td>
 			</tr>
-			<tr>
+			<!-- <tr>
 				<td>Prodi</td>
 				<td>
 					<select class="form-control" name="prodi" style="width: 200px">
@@ -56,11 +56,11 @@ if (isset($_POST['btn-save'])) {
 						<option>Managemen</option>
 					</select>
 				</td>
-			</tr>
-			<tr>
+			</tr> -->
+			<!-- <tr>
 				<td>Tahun Masuk</td>
 				<td><input type="text" name="thn_masuk"></td>
-			</tr>
+			</tr> -->
 
 			<tr>
 				<td colspan="2">
