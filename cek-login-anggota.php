@@ -17,6 +17,7 @@ if (isset($_POST['submit'])) {
 	$results = $stmt->fetch(PDO::FETCH_ASSOC);
 	// echo $results['password'];
 	if (count($results) > 0 && $password == $results['password']) {
+		$_SESSION['id'] = $results['id'];
 		$_SESSION['nama'] = $results['username'];
 		$_SESSION['password'] = $results['password'];
 		// $_SESSION['username'] = $results['nama'];
