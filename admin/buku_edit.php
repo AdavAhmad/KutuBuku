@@ -76,11 +76,11 @@ if (isset($_GET['id'])) {
 				<td>Kode ISBN</td>
 				<td><input type="text" name="isbn" class="form-control" value="<?= $isbn; ?>"></td>
 			</tr>
-			<tr>
+			<!-- <tr>
 				<td>Jumlah</td>
 				<td><input type="text" name="jumlah_buku" class="form-control" value="<?= $jumlah_buku; ?>"></td>
-			</tr>
-			<tr>
+			</tr> -->
+			<!-- <tr>
 				<td>Lokasi</td>
 				<td>
 					<select name="lokasi" class="form-control" style="width: 200px">
@@ -96,6 +96,14 @@ if (isset($_GET['id'])) {
 						?>
 					</select>
 				</td>
+			</tr> -->
+			<tr>
+				<td>File</td>
+				<td><input type="file" name="filenya" class="form-control" value="<?= $bukunya; ?>"></td>
+			</tr>
+			<tr>
+				<td>Cover</td>
+				<td><input type="file" name="cover" class="form-control" value="<?= $cover; ?>"></td>
 			</tr>
 
 			<tr>

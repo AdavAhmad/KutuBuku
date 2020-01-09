@@ -24,10 +24,10 @@
                                 Menu Utama
                             </a>
                         </li>
-                        <li class="nav-item mr-3">
-                            <div class="dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" style="font-size:16px">
-                                    kategori
+                        <li class="nav-item mx-3">
+                            <div class="dropdown mt-2">
+                                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" style="font-size:17px">
+                                    Kategori
                                 </a>
                                 <div class="dropdown-menu">
                                     <?php

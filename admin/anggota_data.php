@@ -80,7 +80,7 @@
 					?>
 						<tr style="text-align: center;">
 							<td><?php echo $no; ?></td>
-							<td><a href="?page=detil-anggota&nim=<?= $value['nim']; ?>"><?php echo $value['password']; ?></a></td>
+							<td><?php echo $value['password']; ?></td>
 							<td><?= $value['username']; ?></td>
 							<td><?= $value['no_telp'] ?></td>
 							<td><?= $value['email'] ?></td>
