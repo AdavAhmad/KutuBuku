@@ -8,10 +8,8 @@ if (isset($_POST['btn-save'])) {
 	$tempat_lahir = $_POST['tempat_lahir'];
 	$tgl_lahir = $_POST['tgl_lahir'];
 	$jk = $_POST['jk'];
-	$prodi = $_POST['prodi'];
-	$thn_masuk = $_POST['thn_masuk'];
 
-	if ($anggota->create($nim, $nama, $tempat_lahir, $tgl_lahir, $jk, $prodi, $thn_masuk)) {
+	if ($anggota->create($nim, $nama, $tempat_lahir, $tgl_lahir, $jk)) {
 		header('location:?page=anggota&msg=success');
 	}
 }

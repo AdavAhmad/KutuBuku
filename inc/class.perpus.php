@@ -162,17 +162,15 @@ class perpus
 
 				class anggota extends perpus
 				{
-					public function create($nim, $nama, $tempat_lahir, $tgl_lahir, $jk, $prodi, $thn_masuk)
+					public function create($nim, $nama, $tempat_lahir, $tgl_lahir, $jk)
 					{
 						try {
-							$stmt = $this->conn->prepare('INSERT INTO tbl_anggota(nim,nama,tempat_lahir,tgl_lahir,jk,prodi,thn_masuk) VALUES(?,?,?,?,?,?,?)');
+							$stmt = $this->conn->prepare('INSERT INTO tbl_anggota(password, username, no_telp, email, jk) VALUES(?,?,?,?,?)');
 							$stmt->bindParam(1, $nim);
 							$stmt->bindParam(2, $nama);
 							$stmt->bindParam(3, $tempat_lahir);
 							$stmt->bindParam(4, $tgl_lahir);
 							$stmt->bindParam(5, $jk);
-							$stmt->bindParam(6, $prodi);
-							$stmt->bindParam(7, $thn_masuk);
 							$stmt->execute();
 
 							return true;

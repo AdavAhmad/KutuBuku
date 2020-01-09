@@ -113,13 +113,14 @@ if (isset($_GET['proses'])) {
 				<thead>
 					<tr>
 						<th width="5%">No</th>
+						<th>Id Buku</th>
 						<th>Judul Buku</th>
 						<th>Peminjam</th>
 						<th>Tgl Pinjam</th>
 						<th>Tgl Kembali</th>
 						<!-- <th>Terlambat</th> -->
-						<th>Kembali</th>
-						<th>Perpanjang</th>
+						<th>Status</th>
+						<!-- <th>Perpanjang</th> -->
 					</tr>
 				</thead>
 				<tbody>
@@ -143,11 +144,13 @@ if (isset($_GET['proses'])) {
 					?>
 						<tr style="text-align: center;">
 							<td><?php echo $no; ?></td>
+							<td><?= $value['id'] ?></td>
 							<td><?= $value['judul']; ?></td>
 							<td><?= $value['nama']; ?></td>
 							<td><?= $value['tgl_pinjam'] ?></td>
 							<td><?= $value['tgl_kembali'] ?></td>
-							<td>
+							<td><?= $value['status'] ?></td>
+							<!-- <td>
 								<?php
 								$tgl_dateline = $value['tgl_kembali'];
 								$tgl_kembali = date('d-m-Y');
@@ -160,13 +163,13 @@ if (isset($_GET['proses'])) {
 									echo $lambat . " hari";
 								}
 								?>
-							</td>
+							</td> -->
 							<!-- <td>
 								<a href="?page=transaksi&proses=Kembali&id=<?= $value['id']; ?>&judul=<?= $value['judul']; ?>">kembali</a>
 							</td> -->
-							<td>
+							<!-- <td>
 								<a href="?page=transaksi&proses=perpanjang&id=<?= $value['id']; ?>&judul=<?= $value['judul']; ?>&tgl_kembali=<?= $value['tgl_kembali']; ?>&lambat=<?php echo $lambat; ?>">perpanjang</a>
-							</td>
+							</td> -->
 						</tr>
 					<?php
 						$no++;
