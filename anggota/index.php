@@ -150,10 +150,12 @@
       <div class="center text-light">
         <div>
           <h2 class="ml-4">Cari dari <?php echo $gambar; ?> buku </h2>
-          <form class=" form form-inline d-flex justify-content-center">
-            <input class="form-control form-control-lg bar" type="search" placeholder="Cari...." aria-label="Search">
-            <button class="btn bir btn-outline-primary btn-lg " type="submit">Cari</button>
+
+          <form action="cari_buku.php" method="POST" class=" form form-inline d-flex justify-content-center">
+            <input name="cari" class="form-control form-control-lg bar" type="search" placeholder="Cari...." aria-label="Search">
+            <button class="btn bir btn-outline-primary btn-lg " type="submit" type="button">Cari</button>
           </form>
+
         </div>
       </div>
     </div>
@@ -196,6 +198,7 @@
               } else { ?>
                 <img src="../admin/img/<?php echo $gambar; ?>" class="card-img-top mb-4" alt="gambar" style="width: 160px; height: 275px">
               <?php } ?>
+              <h5 class="text-center"><?= $row["judul"] ?></h5>
               <a href="pinjam.php?buku=<?= $row["id"] ?>&judul=<?= $row["judul"] ?>"><button class="btn btn-outline-primary btn-lg" style="width: 100%;">Pinjam</button></a>
             </div>
           </div>
@@ -206,53 +209,7 @@
   </section>
   <!-- Akhir Koleksi terbaru -->
 
-  <!-- Terfavorit -->
 
-  <?php
-
-  $isn = require_once '../public/koneksi.php';
-  // var_dump($isn);
-  $query = 'select id_buku, count(*) as fav from tbl_transaksi group by id_buku order by fav desc limit 1';
-  $hmm1 = $database->prepare($query);
-  $hmm1->execute();
-  $res1 = $hmm1->get_result();
-  while ($row = $res1->fetch_assoc()) {
-    $id = $row["id_buku"];
-  }
-  ?>
-
-
-
-  <section class="favorit">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-10 text-center py-3 bg-light">
-          <h3>Buku Terfavorit</h3>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-1 bg-light"></div>
-        <div class="col-md-4 bg-light py-5 ">
-          <img src="<?php echo $gambar; ?>" alt="" class="gambar">
-        </div>
-        <div class="col-md-4 py-5 bg-light">
-          <div class="fav">
-            <!-- <h3><?php echo $judul; ?></h3> -->
-            <!-- <h4 style='color:grey'><?php echo $tahun; ?></h4> -->
-            <!-- <p><?php echo $des; ?></p> -->
-            <button class="btn btn-primary btn-lg button">Pinjam</button>
-          </div>
-        </div>
-        <div class="col-md-1 bg-light"></div>
-        <div class="col-md-1 "></div>
-      </div>
-    </div>
-  </section>
-  <?php // } 
-  ?>
-  <!-- Akhir Terfavorit -->
 
   <!-- Genre 1 -->
   <section class="konten1">
@@ -286,6 +243,7 @@
               } else { ?>
                 <img src="../admin/img/<?php echo $gambar; ?>" class="card-img-top mb-4" alt="gambar" style="width: 100%; height: 275px">
               <?php } ?>
+              <h5 class="text-center"><?= $row["judul"] ?></h5>
               <a href="pinjam.php?buku=<?= $row["id"] ?>&judul=<?= $row["judul"] ?>"><button class="btn btn-outline-primary btn-lg" style="width: 100%;">Pinjam</button></a>
             </div>
           </div>
@@ -328,6 +286,7 @@
               } else { ?>
                 <img src="../admin/img/<?php echo $gambar; ?>" class="card-img-top mb-4" alt="gambar" style="width: 100%; height: 275px">
               <?php } ?>
+              <h5 class="text-center"><?= $row["judul"] ?></h5>
               <a href="pinjam.php?buku=<?= $row["id"] ?>&judul=<?= $row["judul"] ?>"><button class="btn btn-outline-primary btn-lg" style="width: 100%;">Pinjam</button></a>
             </div>
           </div>

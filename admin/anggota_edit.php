@@ -3,15 +3,13 @@ include_once '../inc/class.perpus.php';
 $anggota = new anggota;
 
 if (isset($_POST['btn-update'])) {
-	$nim = $_GET['nim'];
-	$nim1 = $_POST['nim1'];
-	$nama = $_POST['nama'];
-	$tempat_lahir = $_POST['tempat_lahir'];
-	$tgl_lahir = $_POST['tgl_lahir'];
+	$pass = $_GET['password'];
+	$username = $_POST['username'];
+	$telp = $_POST['no_telp'];
+	$email = $_POST['email'];
 	$jk = $_POST['jk'];
-	$prodi = $_POST['prodi'];
-	$thn_masuk = $_POST['thn_masuk'];
-	if ($anggota->update($nim, $nim1, $nama, $tempat_lahir, $tgl_lahir, $jk, $prodi, $thn_masuk)) {
+
+	if ($anggota->update($nim, $pass, $username, $telp, $email, $jk)) {
 		$msg = "<div class='alert alert-info'>
 			<strong>WOW!</strong> Record was updated successfully <a href='?page=anggota'>HOME</a>!
 		</div>";
@@ -22,9 +20,9 @@ if (isset($_POST['btn-update'])) {
 	}
 }
 
-if (isset($_GET['nim'])) {
-	$nim = $_GET['nim'];
-	extract($anggota->getData($nim, 'tbl_anggota', 'nim'));
+if (isset($_GET['username'])) {
+	$nim = $_GET['username'];
+	extract($anggota->getData($nim, 'tbl_anggota', 'username'));
 }
 ?>
 
@@ -45,19 +43,19 @@ if (isset($_GET['nim'])) {
 		<table class="table table-bordered">
 			<tr>
 				<td>Password</td>
-				<td><input class="form-control" type="text" name="nim1" value="<?= $nim; ?>"></td>
+				<td><input class="form-control" type="text" name="password" value="<?= $pass; ?>"></td>
 			</tr>
 			<tr>
 				<td>Username</td>
-				<td><input class="form-control" type="text" name="nama" value="<?= $nama; ?>"></td>
+				<td><input class="form-control" type="text" name="nama" value="<?= $username; ?>"></td>
 			</tr>
 			<tr>
 				<td>No Telp</td>
-				<td><input class="form-control" type="text" name="tempat_lahir" value="<?= $tempat_lahir; ?>"></td>
+				<td><input class="form-control" type="text" name="tempat_lahir" value="<?= $telp; ?>"></td>
 			</tr>
 			<tr>
 				<td>Email</td>
-				<td><input class="form-control" type="emial" name="tgl_lahir" value="<?= $tgl_lahir; ?>" placeholder=""></td>
+				<td><input class="form-control" type="emial" name="tgl_lahir" value="<?= $email; ?>" placeholder=""></td>
 			</tr>
 			<tr>
 				<td>Jenis Kelamin</td>

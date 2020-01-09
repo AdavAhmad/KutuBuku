@@ -39,7 +39,7 @@ if (isset($_POST['submit'])) {
 	} else {
 		// $errMsg .= 'Username and Password are not found<br>';
 		echo "<script>alert('Username and Password are not found');</script>";
-		echo "<meta http-equiv='refresh' content='0; url=index.php'>";
+		echo "<meta http-equiv='refresh' content='0; url=login-user.php'>";
 	}
 	// }
 
