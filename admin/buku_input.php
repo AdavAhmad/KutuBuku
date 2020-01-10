@@ -4,7 +4,7 @@ $obj = new buku;
 date_default_timezone_set('Asia/Jakarta');
 
 if (isset($_POST['btn-save'])) {
-	$ekstensi_diperbolehkan	= array('png', 'jpg', 'pdf', 'doc', 'docx','jpeg','gif');
+	$ekstensi_diperbolehkan	= array('png', 'jpg', 'pdf', 'doc', 'docx', 'jpeg', 'gif');
 	$nama = $_FILES['filenya']['name'];
 	$cover = $_FILES['cover']['name'];
 
@@ -47,9 +47,11 @@ if (isset($_POST['btn-save'])) {
 	$waktu = $tanggal . ' ' . $jam;
 	$bukunya = $nama;
 	$covernya = $cover;
+	$kategori = $_POST['kategori'];
 
+	var_dump($kategori);
 	//var_dump($obj->create($judul, $pengarang, $penerbit, $thn_terbit, $isbn, $jumlah_buku, $lokasi, $waktu, $bukunya, $covernya));
-	if ($obj->create($judul, $pengarang, $penerbit, $thn_terbit, $isbn, $jumlah_buku, $lokasi, $waktu, $bukunya, $covernya)) {
+	if ($obj->create($judul, $pengarang, $penerbit, $thn_terbit, $isbn, $jumlah_buku, $lokasi, $waktu, $bukunya, $covernya, $kategori)) {
 		header('location:?page=buku&msg=success');
 	}
 }
@@ -113,10 +115,31 @@ if (isset($_POST['btn-save'])) {
 				<td>File nya</td>
 				<td><input type="file" name="filenya" class="form-control" required></td>
 			</tr>
-			
+
 			<tr>
 				<td>Cover</td>
 				<td><input type="file" name="cover" class="form-control" required></td>
+			</tr>
+
+
+
+			<tr>
+				<td>Kategori</td>
+				<td><select name="kategori" id="kategori">
+						< <?php
+							require_once '../public/koneksi.php';
+							$query = 'select * from tbl_kategori';
+							$hmm1 = $database->prepare($query);
+							$hmm1->execute();
+							$res1 = $hmm1->get_result();
+							while ($row = $res1->fetch_assoc()) {
+								$nama = $row["kategori"];
+								$id_kat = $row["id_kategori"];
+
+							?> <option value="<?= $id_kat ?>"><?= $nama ?>
+							</option>
+						<?php } ?>
+					</select></td>
 			</tr>
 
 			<tr>
