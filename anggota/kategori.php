@@ -51,6 +51,7 @@
                             } else { ?>
                                 <img src="../admin/img/<?php echo $gambar; ?>" class="card-img-top mb-4" alt="gambar" style="width: 100%; height: 275px">
                             <?php } ?>
+                            <h5 class="text-center"><?= $row["judul"] ?></h5>
                             <a href="pinjam.php?buku=<?= $row["id"] ?>&judul=<?= $row["judul"] ?>"><button class="btn btn-outline-primary btn-lg" style="width: 100%;">Pinjam</button></a>
                         </div>
                     </div>

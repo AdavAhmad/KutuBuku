@@ -196,7 +196,8 @@
               ?><img src="../public/img/buku/1.png" class="card-img-top mb-4" alt="gambar" style="width: 160px; height: 275px">
               <?php
               } else { ?>
-                <img src="../admin/img/<?php echo $gambar; ?>" class="card-img-top mb-4" alt="gambar" style="width: 160px; height: 275px">
+
+                <a href="detail_buku.php?buku=<?= $row["id"] ?>"><img src="../admin/img/<?php echo $gambar; ?>" class="card-img-top mb-4" alt="gambar" style="width: 160px; height: 275px"></a>
               <?php } ?>
               <h5 class="text-center"><?= $row["judul"] ?></h5>
               <a href="pinjam.php?buku=<?= $row["id"] ?>&judul=<?= $row["judul"] ?>"><button class="btn btn-outline-primary btn-lg" style="width: 100%;">Pinjam</button></a>
