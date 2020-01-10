@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>APLIKASI PERPUS (PDO)</title>
+  <title>Home</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -65,7 +65,7 @@
               <li><a href="?page=anggota"><i class="glyphicon glyphicon-list-alt"></i> Anggota</a></li>
               <li><a href="?page=transaksi"><i class="glyphicon glyphicon-random"></i> Transaksi</a></li>
               <li><a href="?page=laporan"><i class="glyphicon glyphicon-file"></i> Laporan</a></li>
-              <!-- <li><a href="?page=user"><i class="glyphicon glyphicon-user"></i> User</a></li> -->
+              <li><a href="?page=user"><i class="glyphicon glyphicon-list"></i>Kategori</a></li>
             </ul><br>
           </div>
 
