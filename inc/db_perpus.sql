@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 08 Jan 2020 pada 04.14
+-- Waktu pembuatan: 10 Jan 2020 pada 04.08
 -- Versi server: 10.4.10-MariaDB
 -- Versi PHP: 7.3.12
 
@@ -41,14 +41,18 @@ CREATE TABLE `tbl_anggota` (
 --
 
 INSERT INTO `tbl_anggota` (`password`, `username`, `no_telp`, `email`, `jk`) VALUES
-('201328', 'Cristine', 0, 'Manado', 'P'),
+('201328', 'Cristine', 98287873, 'Manado', 'P'),
 ('213834', 'Fariz', 0, 'Tangerang', 'P'),
-('2015804065', 'Iqbal Rizqi Purnama', 0, 'Ciamis', 'L'),
+('1sampai8', 'galih', 0, 'inclementes@intim-dplays.ru', 'L'),
+('12345', 'ilham', 90908878, 'admin@ilham.com', 'L'),
 ('54321', 'Lala', 90908878, 'inclementes@intim-plays.ru', 'P'),
 ('210234', 'maratus', 0, 'pamulang', 'P'),
+('akujijik', 'marbot', 2147483647, 'ikipiye@gmail.com', 'L'),
 ('21394', 'Ria Putri', 0, 'Gorontalo', 'P'),
+('17.11.1438', 'Samingun', 2147483647, 'suryayaya@gmail.cominfo', 'L'),
 ('121212', 'surya', 989867879, 'ellston@ufoairs.info', 'L'),
-('2015804045', 'Wewen', 0, 'Indramayu', 'P');
+('2015804045', 'Wewen', 0, 'Indramayu', 'P'),
+('gueganteng', 'WinardiLeksono', 989867879, 'surya@surya.comi', 'L');
 
 -- --------------------------------------------------------
 
@@ -67,30 +71,57 @@ CREATE TABLE `tbl_buku` (
   `lokasi` enum('rak1','rak2','rak3') DEFAULT NULL,
   `tgl_input` datetime NOT NULL,
   `bukunya` varchar(150) DEFAULT NULL,
-  `cover` varchar(250) DEFAULT NULL
+  `cover` varchar(250) DEFAULT NULL,
+  `id_kategori` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `tbl_buku`
 --
 
-INSERT INTO `tbl_buku` (`id`, `judul`, `pengarang`, `penerbit`, `thn_terbit`, `isbn`, `jumlah_buku`, `lokasi`, `tgl_input`, `bukunya`, `cover`) VALUES
-(23, 'Matematika', 'Asepudin', 'Gramedial', '2015', '4871847h', 3, 'rak2', '0000-00-00 00:00:00', NULL, NULL),
-(24, 'Dasar PHP', 'Solihin', 'Toko bukbek', '2010', '943823jc4', 0, 'rak2', '0000-00-00 00:00:00', NULL, NULL),
-(25, 'Pintar CSS', 'Jack', 'Media Suar', '2012', '934748', 7, 'rak1', '0000-00-00 00:00:00', NULL, NULL),
-(26, 'Bahasa Arab', 'Soleh', 'Muslim post', '2015', '923847', 4, 'rak1', '0000-00-00 00:00:00', NULL, NULL),
-(29, 'Angular js', 'anggul', 'Raja Program', '2016', '943823jc4', 3, 'rak2', '0000-00-00 00:00:00', NULL, NULL),
-(30, 'Mahir MySQL', 'April', 'Megatama', '2014', '1234', 3, 'rak1', '2016-10-31 03:03:43', NULL, NULL),
-(31, 'Mahir PHP', 'Julian', 'Jorge', '2016', '4325', 2, 'rak3', '2016-10-31 09:06:05', NULL, NULL),
-(33, 'test', 'lala', 'lalala', '2014', '4871847h', 5, 'rak2', '2016-10-31 22:03:44', NULL, NULL),
-(34, 'HTML Untuk Pemula', 'Surya', 'Penerbit 1', '2014', '2345', 5, 'rak1', '2016-11-05 12:16:37', NULL, NULL),
-(38, 'aku dan dia', 'zein', 'maskam', '2019', '213ed12312wq', 12, 'rak1', '2019-12-23 03:10:58', 'PEREDUKSIAN_ADDITIVE_WHITE_GAUSSIAN_NOIS.pdf', NULL),
-(40, 'aku dan dirinya', 'zein', 'maskam', '2019', '12sadaas2e2', 111, 'rak2', '2019-12-23 04:41:23', 'wolf_minimalism_art_vector_115878_1920x1080 s.jpg', NULL),
-(42, 'asasa', 'zein', 'maskam', '2019', '213ed12312wq', 12, 'rak3', '2019-12-23 04:43:14', 'A Deep Learning Approach To Universal Image.pdf', NULL),
-(43, 'kklkklk', 'zein', 'maskam', '2017', '213ewqe12312ew', 12, 'rak3', '2019-12-23 04:44:19', 'A Deep Learning Approach To Universal Image.pdf', NULL),
-(44, 'asasa', 'zein', 'maskam', '2019', '123dsdgr', 13, 'rak1', '2019-12-23 10:15:15', 'PEREDUKSIAN_ADDITIVE_WHITE_GAUSSIAN_NOIS.pdf', NULL),
-(45, 'ouhbhb', 'uhub', 'gbh', '2018', '1343', 5, 'rak1', '2020-01-05 23:03:02', 'Earthquake Clustering with KMeans.pdf', NULL),
-(62, 'ouhbhb', 'Buya', 'Susilo', '2015', '56tyhh', NULL, NULL, '2020-01-07 09:54:16', 'P_20190821_204312.jpg', 'P_20190823_134147.jpg');
+INSERT INTO `tbl_buku` (`id`, `judul`, `pengarang`, `penerbit`, `thn_terbit`, `isbn`, `jumlah_buku`, `lokasi`, `tgl_input`, `bukunya`, `cover`, `id_kategori`) VALUES
+(23, 'Matematika', 'Asepudin', 'Gramedial', '2015', '4871847h', 3, 'rak2', '0000-00-00 00:00:00', NULL, NULL, ''),
+(24, 'Dasar PHP', 'Solihin', 'Toko bukbek', '2010', '943823jc4', 0, 'rak2', '0000-00-00 00:00:00', NULL, NULL, '4'),
+(25, 'Pintar CSS', 'Jack', 'Media Suar', '2012', '934748', 7, 'rak1', '0000-00-00 00:00:00', NULL, NULL, ''),
+(26, 'Bahasa Arab', 'Soleh', 'Muslim post', '2015', '923847', 4, 'rak1', '0000-00-00 00:00:00', NULL, NULL, ''),
+(29, 'Angular js', 'anggul', 'Raja Program', '2016', '943823jc4', 3, 'rak2', '0000-00-00 00:00:00', NULL, NULL, ''),
+(30, 'Mahir MySQL', 'April', 'Megatama', '2014', '1234', 3, 'rak1', '2016-10-31 03:03:43', NULL, NULL, '3'),
+(31, 'Mahir PHP', 'Julian', 'Jorge', '2016', '4325', 2, 'rak3', '2016-10-31 09:06:05', NULL, NULL, '3'),
+(33, 'test', 'lala', 'lalala', '2014', '4871847h', 5, 'rak2', '2016-10-31 22:03:44', NULL, NULL, '3'),
+(34, 'HTML Untuk Pemula', 'Surya', 'Penerbit 1', '2014', '2345', 5, 'rak1', '2016-11-05 12:16:37', NULL, NULL, '3'),
+(38, 'aku dan dia', 'zein', 'maskam', '2019', '213ed12312wq', 12, 'rak1', '2019-12-23 03:10:58', 'PEREDUKSIAN_ADDITIVE_WHITE_GAUSSIAN_NOIS.pdf', NULL, '1'),
+(40, 'aku dan dirinya', 'zein', 'maskam', '2019', '12sadaas2e2', 111, 'rak2', '2019-12-23 04:41:23', 'wolf_minimalism_art_vector_115878_1920x1080 s.jpg', NULL, '3'),
+(42, 'asasa', 'zein', 'maskam', '2019', '213ed12312wq', 12, 'rak3', '2019-12-23 04:43:14', 'A Deep Learning Approach To Universal Image.pdf', NULL, '1'),
+(43, 'kklkklk', 'zein', 'maskam', '2017', '213ewqe12312ew', 12, 'rak3', '2019-12-23 04:44:19', 'A Deep Learning Approach To Universal Image.pdf', NULL, '1'),
+(44, 'asasa', 'zein', 'maskam', '2019', '123dsdgr', 13, 'rak1', '2019-12-23 10:15:15', 'PEREDUKSIAN_ADDITIVE_WHITE_GAUSSIAN_NOIS.pdf', NULL, '1'),
+(63, 'Harry Potter', 'JK Rowlling', 'Suryaloka', '2000', '9008298493', NULL, NULL, '2020-01-10 00:45:13', 'Git.pdf', '4.png', ''),
+(64, 'Kimi Hime', 'jambret', 'Surya Citra', '2000', '9008298499090', NULL, NULL, '2020-01-10 02:53:19', '16d15ffc5b0f97a542e01780f785421185b8.pdf', '2.png', ''),
+(65, 'Similikiti', 'jambrurt', 'Suryakalo', '2003', '9008298493', NULL, NULL, '2020-01-10 03:33:22', '3.png', '4.png', ''),
+(66, 'Enterpreneur', 'M Suyanto', 'Andi', '2005', '90082984998768', NULL, NULL, '2020-01-10 08:51:46', '1.jpg', '3.png', '4'),
+(67, 'Fotografi', 'M Suyanto', 'Andi', '2003', '900829849768221', NULL, NULL, '2020-01-10 08:55:00', '1.png', '2.png', ''),
+(69, 'Bismllah', 'M Suyanto', 'Andi', '2001', '11212324312', NULL, NULL, '2020-01-10 09:07:51', '4.png', '3.png', '2');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tbl_kategori`
+--
+
+CREATE TABLE `tbl_kategori` (
+  `id_kategori` int(11) NOT NULL,
+  `kategori` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tbl_kategori`
+--
+
+INSERT INTO `tbl_kategori` (`id_kategori`, `kategori`) VALUES
+(1, 'Karya Ilmiah'),
+(2, 'Komik'),
+(3, 'Novel'),
+(4, 'Pemprograman'),
+(6, 'Religi');
 
 -- --------------------------------------------------------
 
@@ -115,7 +146,7 @@ CREATE TABLE `tbl_transaksi` (
 --
 
 INSERT INTO `tbl_transaksi` (`id`, `judul`, `nim`, `nama`, `tgl_pinjam`, `tgl_kembali`, `status`, `ket`, `id_buku`) VALUES
-(7, 'matematika', 2015804045, 'Wewen Nurwendi', '01-11-2015', '08-11-2015', 'Kembali', '', 'yo'),
+(7, 'matematika', 2015804045, 'Wewen Nurwendi', '01-11-2015', '08-11-2015', 'Kembali', '', NULL),
 (9, 'PHP Dasar', 2015804065, 'Iqbal Rizqi Purnama', '24-10-2016', '07-11-2016', 'Kembali', '', NULL),
 (11, 'matematika', 2011140204, 'Erlang', '28-10-2016', '09-11-2016', 'perpanjang', 'pinjem lagi', NULL),
 (12, 'PHP Dasar', 2015804045, 'Wewen', '28-10-2016', '04-11-2016', 'Kembali', '', NULL),
@@ -150,7 +181,33 @@ INSERT INTO `tbl_transaksi` (`id`, `judul`, `nim`, `nama`, `tgl_pinjam`, `tgl_ke
 (45, 'asasa', 201238, 'Lala', '23-12-2019', '30-12-2019', '', '', '42'),
 (46, 'Bahasa Arab', 201238, 'Lala', '23-12-2019', '30-12-2019', '', '', '26'),
 (47, 'HTML Untuk Pemula', 201238, 'Lala', '30-12-2019', '30-12-2019', '', '', '34'),
-(48, 'Matematika', 201238, 'Lala', '05-01-2020', '12-01-2020', 'Kembali', '', '23');
+(48, 'Matematika', 201238, 'Lala', '05-01-2020', '12-01-2020', 'Kembali', '', '23'),
+(49, '', 54321, 'Lala', '08-01-2020', '15-01-2020', 'Kembaliii', 'dipinjam 7 hari', ''),
+(50, '', 54321, 'Lala', '08-01-2020', '15-01-2020', 'Kembaliii', 'dipinjam 7 hari', ''),
+(51, 'ouhbhb', 54321, 'Lala', '08-01-2020', '15-01-2020', 'Kembali', 'dipinjam 7 hari', '45'),
+(52, 'ouhbhb', 54321, 'Lala', '08-01-2020', '15-01-2020', 'Pinjam', 'dipinjam 7 hari', '45'),
+(53, 'ouhbhb', 54321, 'Lala', '08-01-2020', '15-01-2020', 'Kembali', 'dipinjam 7 hari', '45'),
+(54, 'ouhbhb', 54321, 'Lala', '08-01-2020', '15-01-2020', 'Kembali', 'dipinjam 7 hari', '45'),
+(55, 'ouhbhb', 54321, 'Lala', '08-01-2020', '15-01-2020', 'Kembali', 'dipinjam 7 hari', '45'),
+(56, 'ouhbhb', 54321, 'Lala', '08-01-2020', '15-01-2020', 'Kembali', 'dipinjam 7 hari', '45'),
+(57, 'ouhbhb', 54321, 'Lala', '08-01-2020', '15-01-2020', 'Kembali', 'dipinjam 7 hari', '45'),
+(58, 'asasa', 54321, 'Lala', '08-01-2020', '15-01-2020', 'Kembali', 'dipinjam 7 hari', '42'),
+(59, 'asasa', 54321, 'Lala', '08-01-2020', '15-01-2020', 'Kembali', 'dipinjam 7 hari', '42'),
+(60, 'asasa', 54321, 'Lala', '08-01-2020', '15-01-2020', 'Kembaliii', 'dipinjam 7 hari', '42'),
+(61, 'kklkklk', 54321, 'Lala', '08-01-2020', '15-01-2020', 'Kembali', 'dipinjam 7 hari', '43'),
+(62, 'ouhbhb', 54321, 'Lala', '08-01-2020', '15-01-2020', 'Pinjam', 'dipinjam 7 hari', '62'),
+(63, 'asasa', 54321, 'Lala', '09-01-2020', '16-01-2020', 'Kembali', 'dipinjam 7 hari', '42'),
+(64, 'asasa', 54321, 'Lala', '09-01-2020', '16-01-2020', 'Pinjam', 'dipinjam 7 hari', '42'),
+(65, 'asasa', 54321, 'Lala', '09-01-2020', '16-01-2020', 'Kembali', 'dipinjam 7 hari', '42'),
+(66, 'ouhbhb', 121212, 'surya', '09-01-2020', '23-01-2020', 'Pinjam', 'dipinjam 7 hari', '45'),
+(67, 'Mahir PHP', 121212, 'surya', '09-01-2020', '16-01-2020', 'Pinjam', 'dipinjam 7 hari', '31'),
+(68, 'HTML Untuk Pemula', 121212, 'surya', '09-01-2020', '16-01-2020', 'Pinjam', 'dipinjam 7 hari', '34'),
+(69, 'Angular js', 121212, 'surya', '09-01-2020', '16-01-2020', 'Kembali', 'dipinjam 7 hari', '29'),
+(70, 'test', 121212, 'surya', '09-01-2020', '16-01-2020', 'Kembali', 'dipinjam 7 hari', '33'),
+(71, 'ouhbhb', 121212, 'surya', '09-01-2020', '16-01-2020', 'Pinjam', 'dipinjam 7 hari', '62'),
+(72, 'Mahir PHP', 121212, 'surya', '09-01-2020', '16-01-2020', 'Pinjam', 'dipinjam 7 hari', '31'),
+(73, 'aku dan dirinya', 121212, 'surya', '09-01-2020', '16-01-2020', 'Pinjam', 'dipinjam 7 hari', '40'),
+(74, 'Kimi Hime', 121212, 'surya', '09-01-2020', '16-01-2020', 'Pinjam', 'dipinjam 7 hari', '64');
 
 -- --------------------------------------------------------
 
@@ -198,6 +255,12 @@ ALTER TABLE `tbl_buku`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `tbl_kategori`
+--
+ALTER TABLE `tbl_kategori`
+  ADD PRIMARY KEY (`id_kategori`);
+
+--
 -- Indeks untuk tabel `tbl_transaksi`
 --
 ALTER TABLE `tbl_transaksi`
@@ -217,13 +280,19 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT untuk tabel `tbl_buku`
 --
 ALTER TABLE `tbl_buku`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+
+--
+-- AUTO_INCREMENT untuk tabel `tbl_kategori`
+--
+ALTER TABLE `tbl_kategori`
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_transaksi`
 --
 ALTER TABLE `tbl_transaksi`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_user`
